@@ -10,8 +10,8 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.p8vgf8w.mongodb.net
-      MONGODB_USERNAME: nezzonarcizo
-      MONGODB_PASSWORD: JW7BZY5bxFWJR3FP
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
-          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
-          
+        run: |                    # Just showing that this env is just available in the first job scope...Otherwise $MONGODB_DB_NAME is a env available in the Workflow scope
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" 
+          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"                              
+                                  
