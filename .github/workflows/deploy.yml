@@ -40,3 +40,4 @@ jobs:
         run: |                    # Just showing that this env is just available in the first job scope...Otherwise $MONGODB_DB_NAME is a env available in the Workflow scope
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" 
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
+          
